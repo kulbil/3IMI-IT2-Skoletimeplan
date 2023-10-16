@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#leftSideScreen {
+    flex: 1;
+    background-color: #FFCF96;
+}
+
+#rightSideScreen {
+    flex: 3;
+    background-color: #FFE0BC;
+}
+
+#createNewClassDiv {
+    position: absolute;
+    
+}
+
