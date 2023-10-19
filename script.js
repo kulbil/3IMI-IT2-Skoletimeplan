@@ -15,29 +15,34 @@ function createNewClassFunc() {
     $("#rightSideScreen").append(createNewClassDiv);
 
     let createNewClassDivDagSelect = $('<select></select>');
-    createNewClassDivDagSelect.attr("id", "createNewClassDivDagSelect")
+    createNewClassDivDagSelect.attr("id", "createNewClassDivDagSelect");
     createNewClassDivDagSelect.attr("class", "createNewClassDivSelect");
+    createNewClassDivDagSelect.attr("name", "dag");
     $("#createNewClassDiv").append(createNewClassDivDagSelect);
 
 
     let createNewClassDivTimeSelect = $('<select></select>');
-    createNewClassDivTimeSelect.attr("id", "createNewClassDivTimeSelect")
+    createNewClassDivTimeSelect.attr("id", "createNewClassDivTimeSelect");
     createNewClassDivTimeSelect.attr("class", "createNewClassDivSelect");
+    createNewClassDivTimeSelect.attr("name", "time");
     $("#createNewClassDiv").append(createNewClassDivTimeSelect);
 
     let createNewClassDivFagSelect = $('<select></select>');
-    createNewClassDivFagSelect.attr("id", "createNewClassDivTimeSelect")
+    createNewClassDivFagSelect.attr("id", "createNewClassDivTimeSelect");
     createNewClassDivFagSelect.attr("class", "createNewClassDivSelect");
+    createNewClassDivFagSelect.attr("name", "fag");
     $("#createNewClassDiv").append(createNewClassDivFagSelect);
 
     let createNewClassDivKlasseInput = $('<input></input>');
-    createNewClassDivKlasseInput.attr("id", "createNewClassDivKlasseInput")
-    createNewClassDivKlasseInput.attr("class", "createNewClassDivSelect");
+    createNewClassDivKlasseInput.attr("id", "createNewClassDivKlasseInput");
+    createNewClassDivKlasseInput.attr("class", "createNewClassDivInput");
+    createNewClassDivKlasseInput.attr("name", "klasse");
     $("#createNewClassDiv").append(createNewClassDivKlasseInput);
 
     let createNewClassDivRomSelect = $('<select></select>');
-    createNewClassDivRomSelect.attr("id", "createNewClassDivRomSelect")
+    createNewClassDivRomSelect.attr("id", "createNewClassDivRomSelect");
     createNewClassDivRomSelect.attr("class", "createNewClassDivSelect");
+    createNewClassDivRomSelect.attr("name", "rom");
     $("#createNewClassDiv").append(createNewClassDivRomSelect);
 
     let selectList = [
@@ -82,14 +87,22 @@ function createNewClassFunc() {
 
     for (i = 0; i < selectList.length; i++) {
         let selectListOptions = selectList[i];
-        for(k = 0; k < selectListOptions.length; k++) {
-            console.log(selectListOptions[k]);
-        }
+        let currentSelectTag = document.getElementsByClassName("createNewClassDivSelect")[i]
+
+        
+        //it aint working
+        Object.keys(selectListOptions).forEach(key => {
+            if((selectListOptions[key] != "dag") || (selectListOptions[key] != "time") || (selectListOptions[key] != "fag") || (selectListOptions[key] != "rom")) {
+                let addingOption = $('<option></option>');
+                addingOption.attr("class", `${selectList[i]}Class`);
+                addingOption.text(`${selectListOptions[key]}`);
+                $(currentSelectTag).append(addingOption);
+            }
+        });
     }
 }
 
 $("#rightSideScreen").on('click', '#createNewClassBackroundDim', function() {
-    console.log("hei")
     $("#createNewClassBackroundDim").remove();
     $("#createNewClassDiv").remove();
 });
