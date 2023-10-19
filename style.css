@@ -15,8 +15,49 @@ body {
     background-color: #FFE0BC;
 }
 
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+#createNewClassBackroundDim {
+    position: absolute;
+    animation: 0.2s ease-out 0s 1 fadeIn;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+    background-color: black;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-70vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 #createNewClassDiv {
     position: absolute;
-    
+    animation: 0.3s ease-out 0s 1 slideIn;
+    height: 60vh;
+    width: 60vw;
+    top: 20vh;
+    left: 20vw;
+    background-color: red;
+}
+
+.createNewClassDivSelect {
+    height: 10%;
 }
 
